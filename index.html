@@ -25,29 +25,19 @@
     overflow-x: hidden;
 }
 
-     /* ====== SOBRE AZUL PASTEL ====== */
+    /* ====== SOBRE AZUL PASTEL OSCURO Y FONDO ====== */
 #envelope-screen {
     position: fixed; top: 0; left: 0;
     width: 100%; height: 100%;
-    background-color: #a4dbf5;
-    background-image: radial-gradient(circle at center, #cbf0ff 0%, #8bc5e3 100%);
+    /* Aquí pones la ruta de tu imagen de fondo. El degradado ayuda a que el sobre resalte. */
+    background: linear-gradient(rgba(141, 185, 209, 0.4), rgba(141, 185, 209, 0.4)), url('assets/fondo-sobre.jpg') no-repeat center center;
+    background-size: cover;
     z-index: 1000;
     display: flex; justify-content: center; align-items: center;
     transition: opacity 1.2s ease-in-out, visibility 1.2s;
     overflow: hidden;
 }
 #envelope-screen.fade-out { opacity: 0; visibility: hidden; pointer-events: none; }
-
-/* Adornos florales en las esquinas con SVG */
-.env-flower-corner {
-    position: absolute;
-    width: 240px; height: 240px;
-    pointer-events: none;
-    opacity: 0.85;
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
-}
-.env-flower-top { top: -40px; left: -40px; transform: rotate(15deg); }
-.env-flower-bottom { bottom: -40px; left: -40px; transform: rotate(-25deg); }
 
 .envelope-wrapper {
     position: relative; cursor: pointer; z-index: 10;
@@ -56,30 +46,29 @@
 }
 .envelope-body {
     position: relative; width: 340px; height: 230px;
-    background: #CBE9F8;
+    background: #8DB9D1; /* Azul pastel más oscuro */
     border-radius: 4px 4px 6px 6px;
-    box-shadow: 0 35px 60px rgba(0,0,0,0.2), 0 10px 25px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.4);
+    box-shadow: 0 35px 60px rgba(0,0,0,0.3), 0 10px 25px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.4);
     border: 1px solid rgba(255,255,255,0.3);
     transition: transform 0.4s ease, box-shadow 0.4s ease; 
     overflow: visible;
 }
 .envelope-wrapper:hover .envelope-body { 
     transform: translateY(-4px); 
-    box-shadow: 0 45px 80px rgba(0,0,0,0.25), 0 15px 35px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.5); 
+    box-shadow: 0 45px 80px rgba(0,0,0,0.4), 0 15px 35px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5); 
 }
 
-/* Pliegues del sobre en tonos azules pastel */
-.envelope-left-fold { position:absolute; bottom:0; left:0; width:0; height:0; border-left:170px solid #A7DDF5; border-top:115px solid transparent; border-bottom:115px solid #A7DDF5; border-radius:0 0 0 6px; z-index:1; }
-.envelope-right-fold { position:absolute; bottom:0; right:0; width:0; height:0; border-right:170px solid #94D3F2; border-top:115px solid transparent; border-bottom:115px solid #94D3F2; border-radius:0 0 6px 0; z-index:1; }
-.envelope-bottom-fold { position:absolute; bottom:0; left:0; width:0; height:0; border-left:170px solid transparent; border-right:170px solid transparent; border-bottom:125px solid #82CAEE; border-radius:0 0 6px 6px; z-index:2; filter: drop-shadow(0 -2px 4px rgba(0,0,0,0.05)); }
+/* Pliegues del sobre más oscuros */
+.envelope-left-fold { position:absolute; bottom:0; left:0; width:0; height:0; border-left:170px solid #7AA8C2; border-top:115px solid transparent; border-bottom:115px solid #7AA8C2; border-radius:0 0 0 6px; z-index:1; }
+.envelope-right-fold { position:absolute; bottom:0; right:0; width:0; height:0; border-right:170px solid #6E9CB6; border-top:115px solid transparent; border-bottom:115px solid #6E9CB6; border-radius:0 0 6px 0; z-index:1; }
+.envelope-bottom-fold { position:absolute; bottom:0; left:0; width:0; height:0; border-left:170px solid transparent; border-right:170px solid transparent; border-bottom:125px solid #5C8CA6; border-radius:0 0 6px 6px; z-index:2; filter: drop-shadow(0 -2px 4px rgba(0,0,0,0.1)); }
 
-/* Solapa principal */
 .envelope-flap {
     position:absolute; top:0; left:0; width:340px; height:0;
-    border-left:170px solid transparent; border-right:170px solid transparent; border-top:130px solid #71C0E8;
+    border-left:170px solid transparent; border-right:170px solid transparent; border-top:130px solid #4D7E98;
     transform-origin:top center; transform-style:preserve-3d;
     transition: transform 0.7s cubic-bezier(0.4,0,0.2,1) 0.1s; z-index:4;
-    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,0.15));
 }
 .envelope-wrapper.open .envelope-flap { transform:rotateX(-175deg); z-index:1; }
 
@@ -95,13 +84,12 @@
 .envelope-wrapper.open .wax-seal { transform:translateX(-50%) scale(0) rotate(45deg); opacity:0; }
 
 .wax-seal svg {
-    width: 32px; height: 32px;
+    width: 30px; height: 30px;
     fill: #594406; 
     filter: drop-shadow(0 1px 1px rgba(255,255,255,0.4));
 }
 
 .hint-text { margin-top:25px; text-align:center; font-family:'Montserrat',sans-serif; font-size:11px; color:#ffffff; letter-spacing:2px; opacity:0.9; animation:pulse 2s infinite; text-transform:uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-       /* ====== MAIN ====== */
 #main-invitation {
     min-height: 100vh;
     position: relative; 
