@@ -26,25 +26,36 @@
 }
 
     /* ====== SOBRE AZUL PASTEL OSCURO Y FONDO ====== */
-<div id="envelope-screen">
-    <div class="envelope-wrapper">
-        <div class="envelope-body">
-            <div class="envelope-left-fold"></div>
-            <div class="envelope-right-fold"></div>
-            <div class="envelope-bottom-fold"></div>
-            <div class="envelope-flap"></div>
-        </div>
-        
-        <div class="wax-seal">
-            <!-- Icono de Osito -->
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18.5,2C20.43,2 22,3.57 22,5.5C22,6.58 21.5,7.54 20.73,8.19C20.9,8.76 21,9.36 21,10C21,14.97 16.97,19 12,19C7.03,19 3,14.97 3,10C3,9.36 3.1,8.76 3.27,8.19C2.5,7.54 2,6.58 2,5.5C2,3.57 3.57,2 5.5,2C6.96,2 8.21,2.9 8.79,4.2C9.79,3.43 10.84,3 12,3C13.16,3 14.21,3.43 15.21,4.2C15.79,2.9 17.04,2 18.5,2M7.5,11C6.67,11 6,11.67 6,12.5C6,13.33 6.67,14 7.5,14C8.33,14 9,13.33 9,12.5C9,11.67 8.33,11 7.5,11M16.5,11C15.67,11 15,11.67 15,12.5C15,13.33 15.67,14 16.5,14C17.33,14 18,13.33 18,12.5C18,11.67 17.33,11 16.5,11M12,15.5C10.62,15.5 9.5,16.62 9.5,18C9.5,19.38 10.62,20.5 12,20.5C13.38,20.5 14.5,19.38 14.5,18C14.5,16.62 13.38,15.5 12,15.5M12,16.5C12.83,16.5 13.5,17.17 13.5,18C13.5,18.83 12.83,19.5 12,19.5C11.17,19.5 10.5,18.83 10.5,18C10.5,17.17 11.17,16.5 12,16.5Z" />
-            </svg>
-        </div>
-        
-        <div class="hint-text">Toca para abrir</div>
-    </div>
-</div>
+    #envelope-screen {
+        position: fixed; top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(rgba(141, 185, 209, 0.4), rgba(141, 185, 209, 0.4)), url('assets/fondo-sobre.jpg') no-repeat center center;
+        background-size: cover;
+        z-index: 1000;
+        display: flex; justify-content: center; align-items: center;
+        transition: opacity 1.2s ease-in-out, visibility 1.2s;
+        overflow: hidden;
+    }
+    #envelope-screen.fade-out { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    .envelope-wrapper {
+        position: relative; cursor: pointer; z-index: 10;
+        display: flex; flex-direction: column; align-items: center;
+        perspective: 1000px;
+    }
+    .envelope-body {
+        position: relative; width: 340px; height: 230px;
+        background: #8DB9D1; /* Azul pastel más oscuro */
+        border-radius: 4px 4px 6px 6px;
+        box-shadow: 0 35px 60px rgba(0,0,0,0.3), 0 10px 25px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.4);
+        border: 1px solid rgba(255,255,255,0.3);
+        transition: transform 0.4s ease, box-shadow 0.4s ease; 
+        overflow: visible;
+    }
+    .envelope-wrapper:hover .envelope-body { 
+        transform: translateY(-4px); 
+        box-shadow: 0 45px 80px rgba(0,0,0,0.4), 0 15px 35px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5); 
+    }
 
 /* Pliegues del sobre más oscuros */
 .envelope-left-fold { position:absolute; bottom:0; left:0; width:0; height:0; border-left:170px solid #7AA8C2; border-top:115px solid transparent; border-bottom:115px solid #7AA8C2; border-radius:0 0 0 6px; z-index:1; }
@@ -78,6 +89,7 @@
 }
 
 .hint-text { margin-top:25px; text-align:center; font-family:'Montserrat',sans-serif; font-size:11px; color:#ffffff; letter-spacing:2px; opacity:0.9; animation:pulse 2s infinite; text-transform:uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+
 #main-invitation {
     min-height: 100vh;
     position: relative; 
@@ -519,45 +531,23 @@ body.content-active #main-invitation {
     </button>
 
     <div id="envelope-screen">
-    <svg class="env-flower-corner env-flower-top" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 10 C60 30 90 40 90 50 C90 60 60 70 50 90 C40 70 10 60 10 50 C10 40 40 30 50 10 Z" fill="#ffffff" opacity="0.6"/>
-        <path d="M50 25 C55 38 75 45 75 50 C75 55 55 62 50 75 C45 62 25 55 25 50 C25 45 45 38 50 25 Z" fill="#ffffff" opacity="0.5"/>
-        <circle cx="50" cy="45" r="2.5" fill="#fff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.1))"/>
-        <circle cx="45" cy="50" r="2" fill="#fff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.1))"/>
-        <circle cx="55" cy="50" r="2" fill="#fff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.1))"/>
-        <circle cx="50" cy="55" r="2.5" fill="#fff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.1))"/>
-        <circle cx="50" cy="50" r="3" fill="#ffb6c1" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.1))"/>
-    </svg>
-
-    <svg class="env-flower-corner env-flower-bottom" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 10 C60 30 90 40 90 50 C90 60 60 70 50 90 C40 70 10 60 10 50 C10 40 40 30 50 10 Z" fill="#ffffff" opacity="0.6"/>
-        <path d="M50 25 C55 38 75 45 75 50 C75 55 55 62 50 75 C45 62 25 55 25 50 C25 45 45 38 50 25 Z" fill="#ffffff" opacity="0.5"/>
-        <circle cx="50" cy="45" r="2.5" fill="#fff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.1))"/>
-        <circle cx="45" cy="50" r="2" fill="#fff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.1))"/>
-        <circle cx="55" cy="50" r="2" fill="#fff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.1))"/>
-        <circle cx="50" cy="55" r="2.5" fill="#fff" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.1))"/>
-        <circle cx="50" cy="50" r="3" fill="#ffb6c1" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.1))"/>
-    </svg>
-
-    <div class="envelope-wrapper">
-        <div class="envelope-body">
-            <div class="envelope-left-fold"></div>
-            <div class="envelope-right-fold"></div>
-            <div class="envelope-bottom-fold"></div>
-            <div class="envelope-flap"></div>
+        <div class="envelope-wrapper">
+            <div class="envelope-body">
+                <div class="envelope-left-fold"></div>
+                <div class="envelope-right-fold"></div>
+                <div class="envelope-bottom-fold"></div>
+                <div class="envelope-flap"></div>
+            </div>
+            
+            <div class="wax-seal">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.5,2C20.43,2 22,3.57 22,5.5C22,6.58 21.5,7.54 20.73,8.19C20.9,8.76 21,9.36 21,10C21,14.97 16.97,19 12,19C7.03,19 3,14.97 3,10C3,9.36 3.1,8.76 3.27,8.19C2.5,7.54 2,6.58 2,5.5C2,3.57 3.57,2 5.5,2C6.96,2 8.21,2.9 8.79,4.2C9.79,3.43 10.84,3 12,3C13.16,3 14.21,3.43 15.21,4.2C15.79,2.9 17.04,2 18.5,2M7.5,11C6.67,11 6,11.67 6,12.5C6,13.33 6.67,14 7.5,14C8.33,14 9,13.33 9,12.5C9,11.67 8.33,11 7.5,11M16.5,11C15.67,11 15,11.67 15,12.5C15,13.33 15.67,14 16.5,14C17.33,14 18,13.33 18,12.5C18,11.67 17.33,11 16.5,11M12,15.5C10.62,15.5 9.5,16.62 9.5,18C9.5,19.38 10.62,20.5 12,20.5C13.38,20.5 14.5,19.38 14.5,18C14.5,16.62 13.38,15.5 12,15.5M12,16.5C12.83,16.5 13.5,17.17 13.5,18C13.5,18.83 12.83,19.5 12,19.5C11.17,19.5 10.5,18.83 10.5,18C10.5,17.17 11.17,16.5 12,16.5Z" />
+                </svg>
+            </div>
+            
+            <div class="hint-text">Toca para abrir</div>
         </div>
-        
-        <div class="wax-seal">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12,2C10.5,5.5 6,7 6,7C6,7 10.5,8.5 12,12C13.5,8.5 18,7 18,7C18,7 13.5,5.5 12,2Z"/>
-                <path d="M12,12C10.5,15.5 6,17 6,17C6,17 10.5,18.5 12,22C13.5,18.5 18,17 18,17C18,17 13.5,15.5 12,12Z"/>
-                <circle cx="12" cy="12" r="1.5"/>
-            </svg>
-        </div>
-        
-        <div class="hint-text">Toca para abrir</div>
     </div>
-</div>
 
     <main id="main-invitation">
         <div id="lanterns-container" style="position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;pointer-events:none;z-index:1;"></div>
@@ -617,7 +607,7 @@ body.content-active #main-invitation {
 
             <div class="info-block">
                 <div class="info-label">Con la bendición de mi madre</div>
-                <div class="family-names">Sandra Vargas &dagger;</div>
+                <div class="family-names">Sandra Vargas †</div>
             </div>
             <div class="info-block">
                 <div class="info-label">Mis Padrinos</div>
