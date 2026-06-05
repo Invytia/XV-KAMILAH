@@ -29,7 +29,7 @@
     #envelope-screen {
         position: fixed; top: 0; left: 0;
         width: 100%; height: 100%;
-        background: linear-gradient(rgba(141, 185, 209, 0.4), rgba(141, 185, 209, 0.4)), url('assets/fondo-sobre.jpg') no-repeat center center;
+     background: linear-gradient(rgba(200, 225, 240, 0.15), rgba(200, 225, 240, 0.15)), url('assets/fondo-sobre.jpg')
         background-size: cover;
         z-index: 1000;
         display: flex; justify-content: center; align-items: center;
@@ -45,7 +45,7 @@
     }
     .envelope-body {
         position: relative; width: 340px; height: 230px;
-        background: #8DB9D1; /* Azul pastel más oscuro */
+        background: #C8E4F2; /* Azul pastel más oscuro */
         border-radius: 4px 4px 6px 6px;
         box-shadow: 0 35px 60px rgba(0,0,0,0.3), 0 10px 25px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.4);
         border: 1px solid rgba(255,255,255,0.3);
@@ -58,13 +58,13 @@
     }
 
 /* Pliegues del sobre más oscuros */
-.envelope-left-fold { position:absolute; bottom:0; left:0; width:0; height:0; border-left:170px solid #7AA8C2; border-top:115px solid transparent; border-bottom:115px solid #7AA8C2; border-radius:0 0 0 6px; z-index:1; }
-.envelope-right-fold { position:absolute; bottom:0; right:0; width:0; height:0; border-right:170px solid #6E9CB6; border-top:115px solid transparent; border-bottom:115px solid #6E9CB6; border-radius:0 0 6px 0; z-index:1; }
-.envelope-bottom-fold { position:absolute; bottom:0; left:0; width:0; height:0; border-left:170px solid transparent; border-right:170px solid transparent; border-bottom:125px solid #5C8CA6; border-radius:0 0 6px 6px; z-index:2; filter: drop-shadow(0 -2px 4px rgba(0,0,0,0.1)); }
+.envelope-left-fold { position:absolute; bottom:0; left:0; width:0; height:0; border-left:170px solid #B8DAEA; border-top:115px solid transparent; border-bottom:115px solid #B8DAEA; border-radius:0 0 0 6px; z-index:1; }
+.envelope-right-fold { position:absolute; bottom:0; right:0; width:0; height:0; border-right:170px solid #A8D0E0; border-top:115px solid transparent; border-bottom:115px solid #A8D0E0; border-radius:0 0 6px 0; z-index:1; }
+.envelope-bottom-fold { position:absolute; bottom:0; left:0; width:0; height:0; border-left:170px solid transparent; border-right:170px solid transparent; border-bottom:125px solid #98C6D8; border-radius:0 0 6px 6px; z-index:2; filter: drop-shadow(0 -2px 4px rgba(0,0,0,0.1)); }
 
 .envelope-flap {
     position:absolute; top:0; left:0; width:340px; height:0;
-    border-left:170px solid transparent; border-right:170px solid transparent; border-top:130px solid #4D7E98;
+    border-left:170px solid transparent; border-right:170px solid transparent; border-top:130px solid #88BCCE;
     transform-origin:top center; transform-style:preserve-3d;
     transition: transform 0.7s cubic-bezier(0.4,0,0.2,1) 0.1s; z-index:4;
     filter: drop-shadow(0 6px 10px rgba(0,0,0,0.15));
