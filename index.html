@@ -93,6 +93,12 @@
             width: 42px; height: 42px;
             filter: drop-shadow(0 1px 1px rgba(255,255,255,0.5));
         }
+        .wax-seal img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 1px rgba(255,255,255,0.5));
+}
 
         .hint-text { margin-top:28px;text-align:center;font-family:'Montserrat',sans-serif;font-size:11px;color:#ffffff;letter-spacing:2px;opacity:0.9;animation:pulse 2s infinite;text-transform:uppercase;text-shadow:0 2px 8px rgba(0,0,0,0.35); }
 
@@ -336,31 +342,9 @@
                 <div class="envelope-flap"></div>
             </div>
             <!-- Sello: Osito Cariñosito SVG artesanal -->
-            <div class="wax-seal">
-                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Orejas -->
-                    <circle cx="12" cy="12" r="7" fill="#8B5E3C"/>
-                    <circle cx="36" cy="12" r="7" fill="#8B5E3C"/>
-                    <circle cx="12" cy="12" r="4.2" fill="#C4876A"/>
-                    <circle cx="36" cy="12" r="4.2" fill="#C4876A"/>
-                    <!-- Cabeza -->
-                    <circle cx="24" cy="26" r="17" fill="#8B5E3C"/>
-                    <!-- Barriguita / hocico area -->
-                    <ellipse cx="24" cy="30" rx="9" ry="7" fill="#C4876A"/>
-                    <!-- Ojos -->
-                    <circle cx="18.5" cy="22" r="2.8" fill="#1a0a00"/>
-                    <circle cx="29.5" cy="22" r="2.8" fill="#1a0a00"/>
-                    <!-- Brillo ojos -->
-                    <circle cx="19.7" cy="20.8" r="1" fill="white"/>
-                    <circle cx="30.7" cy="20.8" r="1" fill="white"/>
-                    <!-- Nariz -->
-                    <ellipse cx="24" cy="27.5" rx="3" ry="2" fill="#1a0a00"/>
-                    <!-- Boca sonrisa -->
-                    <path d="M20.5 31 Q24 34.5 27.5 31" stroke="#1a0a00" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                    <!-- Corazón en la barriga -->
-                    <path d="M22 36.5 C22 35 20 33.5 20 35.2 C20 37 22 38.5 24 40 C26 38.5 28 37 28 35.2 C28 33.5 26 35 26 36.5 C26 35 24 33.5 24 36.5 Z" fill="#E8829A" opacity="0.85"/>
-                </svg>
-            </div>
+           <div class="wax-seal">
+    <img src="assets/osito.png" alt="Osito Cariñosito">
+</div>
             <div class="hint-text">Toca para abrir</div>
         </div>
     </div>
